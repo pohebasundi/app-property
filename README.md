@@ -39,11 +39,15 @@ public class StudentController {
 	
 
 	@GetMapping("/students")                                      			// get all Students
-	public List	<Student> getAllStudents(){	
+	public List<Student> getAllStudents(){	
 	List<Student> students= repo.findAll();	
 		return students;			
 	}
-	 	
+
+
+
+
+   
 	@GetMapping("/students/{id}")				                            // get student by id
 		public Student getStudent(@PathVariable int id ){
 		
