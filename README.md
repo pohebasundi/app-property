@@ -35,6 +35,7 @@ public class StudentController {
 	
 	@Autowired
 	StudentRepository repo;           //using student repository which we have extended
+ 
 	
 
 	@GetMapping("/students")                                      			// get all Students
@@ -43,7 +44,7 @@ public class StudentController {
 		return students;			
 	}
 	 	
-	@GetMapping("/students/{id}")											                      // get student by id
+	@GetMapping("/students/{id}")				                            // get student by id
 		public Student getStudent(@PathVariable int id ){
 		
 		Student student = repo.findById(id).get();		
@@ -52,13 +53,13 @@ public class StudentController {
 	
 
 	@PostMapping("/students/add")
-																			// add new student
+												// add new student
 	public void CreateStudent(@RequestBody Student student) {	
 		repo.save(student);
 			
 	}
 		
-	@PutMapping("/students/update/{id}")                                 //Update
+	@PutMapping("/students/update/{id}")                              			   //Update
 	public Student UpdateStudent (@PathVariable int id) {
 	Student student =  repo.findById(id).get();
 	student.setName("Anushka");
